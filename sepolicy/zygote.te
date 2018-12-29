@@ -1,1 +1,2 @@
 allow zygote vendor_file:file { read open getattr execute };
+allow webview_zygote zygote:unix_dgram_socket { write };

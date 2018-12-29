@@ -6,4 +6,4 @@ allow hal_audio perfd:unix_stream_socket connectto;
 allow hal_audio perfd_data_file:dir search;
 allow hal_audio perfd_data_file:sock_file write;
 
-allow hal_audio_default vendor_data_file:dir { write add_name };
+allow hal_audio_default vendor_data_file:dir { create write add_name read append open };
