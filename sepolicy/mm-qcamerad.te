@@ -9,3 +9,4 @@ allow mm-qcamerad sysfs_graphics:dir r_dir_perms;
 binder_use(mm-qcamerad);
 
 allow mm-qcamerad camera_data_file:dir { add_name remove_name write };
+allow mm-qcamerad sysfs:file { read open };
