@@ -19,6 +19,9 @@ vendor/lib/libmmcamera_stillmore_lib.so
 vendor/lib/libmmcamera_trueportrait_lib.so
 vendor/lib/libmmcamera_ubifocus_lib.so
 
+# DRM
+vendor/lib64/libspl.so
+
 # Camera firmware
 etc/camera/film/0_film.dat:vendor/etc/camera/film/0_film.dat
 etc/camera/film/1_film.dat:vendor/etc/camera/film/1_film.dat
