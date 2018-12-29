@@ -20,6 +20,9 @@ COMMON_PATH := device/lge/msm8996-common
 # inherit from common lge
 -include device/lge/common/BoardConfigCommon.mk
 
+# Reduce system image size by limiting java debug info.
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -107,7 +110,7 @@ AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-QCOM_BT_USE_BTNV := true
+TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 
 # Offmode Charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
