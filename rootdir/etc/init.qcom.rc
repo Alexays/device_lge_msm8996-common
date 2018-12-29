@@ -138,6 +138,15 @@ on boot
     # Bring up CPUs
     start vendor.power-sh
 
+    # Bluetooth
+    chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
+    chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt /dev/ttyHS0
+    chmod 0660 /dev/ttyHS0
+    chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
+    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+
     # Set permissions by node reads by dumpstate
     chmod 0644 /sys/devices/system/cpu/present
     chmod 0644 /sys/devices/system/cpu/online
