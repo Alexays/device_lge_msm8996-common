@@ -5,6 +5,7 @@ lib64/libaptXHD_encoder.so
 # Camera postprocessing
 vendor/lib/libchromaflash.so
 vendor/lib/libllvd_smore.so
+vendor/lib/libedge_smooth_hvx_stub.so
 vendor/lib/liboptizoom.so
 vendor/lib/libseemore.so
 vendor/lib/libtrueportrait.so
