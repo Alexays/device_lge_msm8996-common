@@ -139,13 +139,28 @@ on boot
     start vendor.power-sh
 
     # Bluetooth
-    chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
-    chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwake
+    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+    chown bluetooth bluetooth /proc/bluetooth/sleep/preproto
+    chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
+    chown system system /sys/module/sco/parameters/disable_esco
+    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
+    chmod 0660 /sys/module/bluetooth_power/parameters/power
+    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt /dev/ttyHS0
+    chmod 0660 /proc/bluetooth/sleep/btwake
+    chmod 0660 /proc/bluetooth/sleep/proto
+    chmod 0660 /proc/bluetooth/sleep/preproto
+    chmod 0660 /proc/bluetooth/sleep/lpm
+    chmod 0660 /proc/bluetooth/sleep/btwrite
+    chown bluetooth bluetooth /dev/ttyHSL0
+    chown bluetooth bluetooth /dev/ttyHSL1
+    chown bluetooth bluetooth /dev/ttyHS0
+    chmod 0660 /dev/ttyHS99
     chmod 0660 /dev/ttyHS0
-    chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
-    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
     # Set permissions by node reads by dumpstate
     chmod 0644 /sys/devices/system/cpu/present
@@ -745,6 +760,12 @@ service vendor.imsrcsservice /vendor/bin/imsrcsd
 on property:vendor.ims.DATA_DAEMON_STATUS=1
    start vendor.ims_rtp_daemon
    start vendor.imsrcsservice
+
+service config_bluetooth /vendor/bin/init.qcom.bt.sh "onboot"
+    class core
+    user root
+    seclabel u:r:bluetooth:s0
+    oneshot
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
