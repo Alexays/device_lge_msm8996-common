@@ -178,7 +178,7 @@ TARGET_USES_MKE2FS := true
 TARGET_NEEDS_PDFIUM_BIGINT := true
 
 # Power
-TARGET_HAS_NO_WIFI_STATS := true
+TARGET_HAS_NO_WLAN_STATS := true
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
@@ -186,9 +186,6 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
-
-# RIL
-TARGET_RIL_VARIANT := caf
 
 # SELinux policies
 include device/qcom/sepolicy/sepolicy.mk
