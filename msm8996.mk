@@ -100,7 +100,8 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service \
     hwaddrs \
-    libbt-vendor
+    libbt-vendor \
+    libbt-brcm_a2dp
 
 # Camera
 PRODUCT_PACKAGES += \

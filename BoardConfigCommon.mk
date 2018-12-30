@@ -107,6 +107,11 @@ endif
 AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 
 # Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.chip.vendor=brcm \
+    qcom.bluetooth.soc=rome \
+    ro.bt.bdaddr_path="/data/misc/bluetooth/bdaddr" \
+    persist.bt.enableAptXHD=true
 BOARD_CUSTOM_BT_CONFIG := $(COMMON_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true

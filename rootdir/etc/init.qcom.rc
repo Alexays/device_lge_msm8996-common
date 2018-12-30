@@ -392,6 +392,9 @@ on post-fs-data
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/time 0770 system system
 
+    # Create directory used for dump collection
+    mkdir /data/vendor/ssrdump 0770 root system
+
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
 
@@ -511,14 +514,23 @@ on post-fs-data
     chown system system /data/shared
 
     # Configure bluetooth
+    chmod 0660 /proc/bluetooth/sleep/btwake
+    chmod 0660 /proc/bluetooth/sleep/proto
+    chmod 0660 /proc/bluetooth/sleep/preproto
     chmod 0660 /proc/bluetooth/sleep/lpm
     chmod 0660 /proc/bluetooth/sleep/btwrite
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwake
+    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+    chown bluetooth bluetooth /proc/bluetooth/sleep/preproto
     chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
     chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
+
+    # Feature chip vendor : brcm
+    setprop bluetooth.chip.vendor brcm
 
     # Create directory for FOTA
     mkdir /data/fota 0771
