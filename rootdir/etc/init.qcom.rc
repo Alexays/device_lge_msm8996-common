@@ -372,6 +372,13 @@ service vendor.conn_init /vendor/bin/hwaddrs
     group system wifi
     oneshot
 
+# Running hwaddrs under init is enforcing 0600, we need more
+on property:init.svc.hwaddrs=stopped
+    chmod 644 /data/misc/wifi/config
+    chown system wifi /data/misc/wifi/config
+    chmod 644 /data/misc/bluetooth/bdaddr
+    chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
+
 service loggy /vendor/bin/loggy.sh
    class core
    user root

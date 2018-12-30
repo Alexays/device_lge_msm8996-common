@@ -2,6 +2,12 @@
 # Vendor Properties for LG MSM8996
 #
 
+# LTE, CDMA, GSM/WCDMA
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=22 \
+    telephony.lteOnCdmaDevice=1 \
+    persist.radio.mode_pref_nv10=1
+
 # Art
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.fw.dex2oat_thread_count=4
