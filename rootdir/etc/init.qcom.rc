@@ -111,6 +111,8 @@ on init
     write /dev/stune/rt/schedtune.boost 30
     write /dev/stune/rt/schedtune.prefer_idle 1
 
+    start config_bluetooth
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
@@ -711,8 +713,6 @@ on property:vold.decrypt=trigger_restart_framework
     stop camera-provider-2-4
     start camera-provider-2-4
     start vendor.qcom-c_main-sh
-    start config_bt_addr
-    start config_bluetooth
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
@@ -762,9 +762,9 @@ on property:vendor.ims.DATA_DAEMON_STATUS=1
    start vendor.imsrcsservice
 
 service config_bluetooth /vendor/bin/init.qcom.bt.sh "onboot"
-    class core
-    user root
-    seclabel u:r:bluetooth:s0
+    user bluetooth
+    group bluetooth
+    disabled
     oneshot
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
