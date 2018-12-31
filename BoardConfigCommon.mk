@@ -20,9 +20,6 @@ COMMON_PATH := device/lge/msm8996-common
 # inherit from common lge
 -include device/lge/common/BoardConfigCommon.mk
 
-# Reduce system image size by limiting java debug info.
-PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -187,7 +184,7 @@ TARGET_USES_MKE2FS := true
 TARGET_NEEDS_PDFIUM_BIGINT := true
 
 # Power
-TARGET_HAS_NO_WLAN_STATS := true
+TARGET_HAS_NO_WIFI_STATS := true
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
@@ -201,7 +198,7 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 
 # Thermal
-USE_DEVICE_SPECIFIC_THERMAL := true
+# USE_DEVICE_SPECIFIC_THERMAL := true
 
 # QTI
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
