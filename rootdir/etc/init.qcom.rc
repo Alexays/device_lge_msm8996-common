@@ -696,10 +696,20 @@ on property:persist.sys.ssr.enable_ramdumps=0
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
+
+    trigger enable-low-power
+
     # Reset the read_ahead_kb to 512
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/sda/queue/read_ahead_kb 512
     write /sys/block/sde/queue/read_ahead_kb 512
+
+    # Enable input boost configuration
+    write /sys/module/cpu_boost/parameters/input_boost 1
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800"
+    write /sys/module/cpu_boost/parameters/dynamic_stune_boost 5
+    write /sys/module/cpu_boost/parameters/input_boost_ms 350
+    write /sys/module/msm_performance/parameters/touchboost 0
 
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
