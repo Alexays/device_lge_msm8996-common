@@ -44,4 +44,5 @@
     <allow-in-power-save package="com.qualcomm.qti.gsma.services.nfc" />
 
     <allow-implicit-broadcast action="android.bluetooth.adapter.action.STATE_CHANGED" />
+    <allow-implicit-broadcast action="android.intent.action.DROPBOX_ENTRY_ADDED" />
 </config>
