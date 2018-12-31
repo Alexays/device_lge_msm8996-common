@@ -151,6 +151,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.custom_ecc=1 \
     persist.radio.force_on_dc=true \
+    persist.vendor.radio.add_power_save=1 \
     persist.radio.rat_on=combine \
     persist.radio.redir_party_num=1 \
     persist.radio.sib16_support=1 \
