@@ -161,6 +161,10 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
+# NFC
+TARGET_USES_NQ_NFC := true
+BOARD_NFC_CHIPSET := pn548
+
 # HIDL
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
@@ -198,7 +202,7 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 
 # Thermal
-# USE_DEVICE_SPECIFIC_THERMAL := true
+USE_DEVICE_SPECIFIC_THERMAL := true
 
 # QTI
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
